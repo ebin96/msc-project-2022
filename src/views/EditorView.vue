@@ -1,16 +1,16 @@
 <template>
-  <home-page />
+  <editor-page />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HomePage from "@/components/HomePage.vue";
+import EditorPage from "../components/EditorPage.vue";
 
 export default Vue.extend({
-  name: "homeView",
+  name: "EditorView",
 
   components: {
-    HomePage,
+    EditorPage,
   },
 });
 </script>
