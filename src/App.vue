@@ -6,19 +6,27 @@
           alt="Editor Logo"
           contain
           :src="require('./assets/navlogo.png')"
-          width="80"
+          width="125"
         />
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn @click="newFile" color="#E7DBDE" text>
-        <span class="mr-2" style="font-family: Bahnschrift, serif">New</span>
+        <span
+          class="d-none d-md-block mr-2"
+          style="font-family: Bahnschrift, serif"
+          >New</span
+        >
         <v-icon>mdi-file-outline</v-icon>
       </v-btn>
 
       <v-btn @click.stop="dialog = true" text color="#E7DBDE">
-        <span class="mr-2" style="font-family: Bahnschrift, serif">IMPORT</span>
+        <span
+          class="d-none d-md-block mr-2"
+          style="font-family: Bahnschrift, serif"
+          >IMPORT</span
+        >
         <v-icon>mdi-import</v-icon>
       </v-btn>
 
@@ -70,20 +78,40 @@
         </v-card>
       </v-dialog>
 
-      <v-btn @click="save()" color="#E7DBDE" text>
-        <span class="mr-2" style="font-family: Bahnschrift, serif">SAVE</span>
+      <v-btn @click="save()" color="#E7DBDE" text v-show="btnShowCondition()">
+        <span
+          class="d-none d-md-block mr-2"
+          style="font-family: Bahnschrift, serif"
+          >SAVE</span
+        >
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
 
-      <v-btn @click="restore()" color="#E7DBDE" text>
-        <span class="mr-2" style="font-family: Bahnschrift, serif"
+      <v-btn
+        @click="restore()"
+        color="#E7DBDE"
+        text
+        v-show="btnShowCondition()"
+      >
+        <span
+          class="d-none d-md-block mr-2"
+          style="font-family: Bahnschrift, serif"
           >Restore</span
         >
         <v-icon>mdi-backup-restore</v-icon>
       </v-btn>
 
-      <v-btn @click.stop="dialog2 = true" color="#E7DBDE" text>
-        <span class="mr-2" style="font-family: Bahnschrift, serif">Export</span>
+      <v-btn
+        @click.stop="dialog2 = true"
+        color="#E7DBDE"
+        text
+        v-show="btnShowCondition()"
+      >
+        <span
+          class="d-none d-md-block mr-2"
+          style="font-family: Bahnschrift, serif"
+          >Export</span
+        >
         <v-icon>mdi-export</v-icon>
       </v-btn>
 
@@ -132,15 +160,19 @@
         </v-card>
       </v-dialog>
 
-      <v-switch
-        class="dark"
-        style="padding-left: 1rem"
-        v-model="$vuetify.theme.dark"
-        hint="THEME"
-        inset
-        color="colorVs"
-        persistent-hint
-      ></v-switch>
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn @click="dark()" color="#E7DBDE" text v-bind="attrs" v-on="on">
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >THEME</span
+            >
+            <v-icon>mdi-invert-colors</v-icon>
+          </v-btn>
+        </template>
+        <span>Theme</span>
+      </v-tooltip>
     </v-app-bar>
 
     <v-main>
@@ -156,6 +188,11 @@ import _ from "lodash";
 export default Vue.extend({
   name: "App",
   methods: {
+    dark() {
+      if (this.$vuetify.theme.dark == true) this.$vuetify.theme.dark = false;
+      else this.$vuetify.theme.dark = true;
+    },
+
     importFile() {
       if (this.chosenFile == null) {
         alert("No File Has Been Chosen");
@@ -226,6 +263,11 @@ export default Vue.extend({
         a.dispatchEvent(e);
         //a.dispatchEvent(new MouseEvent('click'));
       }
+    },
+
+    btnShowCondition() {
+      if (this.$router.currentRoute.path == "/") return false;
+      else return true;
     },
   },
 

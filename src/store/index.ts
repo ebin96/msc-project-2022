@@ -8,7 +8,8 @@ export default new Vuex.Store({
     assayData : null,
     backupData: null,
     sortData: null,
-    alertMsg: "No file has been chosen"
+    alertMsg: "No file has been chosen",
+    insFlag: true,
   },
   mutations: {
     addAssayData (state, value) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     addSortableData (state, value) {
       state.sortData = value
+    },
+    changeInsFlag (state) {
+      state.insFlag = false
     }
   },
   getters:{
@@ -30,6 +34,9 @@ export default new Vuex.Store({
     },
     getSortableData (state) {
       return state.sortData
+    },
+    getInsFlag (state) {
+      return state.insFlag
     }
   },
   actions: {

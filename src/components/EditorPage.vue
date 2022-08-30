@@ -1,10 +1,9 @@
-/* eslint-disable */
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <!-- FORM View -->
 
-      <v-col v-for="n in 1" :key="'col' + n" sm="7">
+      <v-col cols="12" sm="6" xs="12" md="6" lg="6">
         <v-card
           class="overflow-y-auto"
           tile
@@ -179,7 +178,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -252,7 +253,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -266,7 +269,9 @@
                                                         </v-col>
                                                         <v-col
                                                           cols="auto"
-                                                          class="align-self-center"
+                                                          class="
+                                                            align-self-center
+                                                          "
                                                         >
                                                           <template>
                                                             <v-icon
@@ -440,7 +445,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -513,7 +520,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -527,7 +536,9 @@
                                                         </v-col>
                                                         <v-col
                                                           cols="auto"
-                                                          class="align-self-center"
+                                                          class="
+                                                            align-self-center
+                                                          "
                                                         >
                                                           <template>
                                                             <v-icon
@@ -780,7 +791,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -853,7 +866,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -867,7 +882,9 @@
                                                         </v-col>
                                                         <v-col
                                                           cols="auto"
-                                                          class="align-self-center"
+                                                          class="
+                                                            align-self-center
+                                                          "
                                                         >
                                                           <template>
                                                             <v-icon
@@ -1041,7 +1058,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -1114,7 +1133,9 @@
                                                                             >mdi-delete</v-icon
                                                                           >
                                                                           <v-icon
-                                                                            class="handle"
+                                                                            class="
+                                                                              handle
+                                                                            "
                                                                             >mdi-drag</v-icon
                                                                           >
                                                                         </template>
@@ -1128,7 +1149,9 @@
                                                         </v-col>
                                                         <v-col
                                                           cols="auto"
-                                                          class="align-self-center"
+                                                          class="
+                                                            align-self-center
+                                                          "
                                                         >
                                                           <template>
                                                             <v-icon
@@ -1274,7 +1297,7 @@
 
       <!-- JSON View -->
 
-      <v-col v-for="n in 1" :key="'col2' + n" sm="5">
+      <v-col cols="12" sm="6" xs="12" md="6" lg="6">
         <v-card
           class="overflow-y-auto"
           tile
@@ -1330,6 +1353,49 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <v-dialog
+      v-model="insDialog"
+      v-if="this.$store.getters.getInsFlag"
+      max-width="500"
+    >
+      <v-card>
+        <v-card-title style="font-family: Bahnschrift, serif; color: rosybrown">
+          Instructions
+        </v-card-title>
+        <v-card-text>
+          Use the NEW button to build a new JSON file.<br />
+          Use the IMPORT button to import a JSON file to edit.<br />
+          Use the SAVE button to save the content.<br />
+          Use the RESTORE button to restore the saved content.<br />
+          Use the EXPORT button to export the content to a JSON file.
+        </v-card-text>
+        <v-divider class="mt-12"></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="color1"
+            style="font-family: Bahnschrift, serif; color: rosybrown"
+            @click="
+              insDialog = false;
+              removeInsDialog();
+            "
+          >
+            Don't Show Again
+          </v-btn>
+
+          <v-btn
+            color="color1"
+            style="font-family: Bahnschrift, serif; color: rosybrown"
+            @click="insDialog = false"
+          >
+            CLOSE
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -1346,6 +1412,7 @@ export default Vue.extend({
   data: () => ({
     jsonData: null as any,
     dialog: false,
+    insDialog: true,
     dVal: null as any,
     dKey: null as any,
   }),
@@ -1357,6 +1424,10 @@ export default Vue.extend({
   },
 
   methods: {
+    removeInsDialog() {
+      this.$store.commit("changeInsFlag");
+    },
+
     getJson() {
       this.jsonData = this.$store.getters.getAssayData;
       return this.jsonData;

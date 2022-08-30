@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div>
     <v-icon @click.stop="dialog = true" @click="tempData()"
@@ -345,14 +344,17 @@ export default Vue.extend({
     },
 
     addDataArray() {
+      // eslint-disable-next-line
       this.jData[this.value1].push(this.value2);
     },
 
     addValue() {
+      // eslint-disable-next-line
       this.globalJData[this.keyValue].push(this.value1);
     },
 
     addObject() {
+      // eslint-disable-next-line
       this.globalJData[this.keyValue].push({});
     },
 
