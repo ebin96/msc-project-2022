@@ -5,30 +5,45 @@
         <v-img
           alt="Editor Logo"
           contain
-          :src="require('./assets/navlogo.png')"
+          :src="require('./assets/logo.png')"
           width="125"
         />
       </div>
 
       <v-spacer></v-spacer>
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn @click="newFile" color="#E7DBDE" text v-bind="attrs" v-on="on">
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >New</span
+            >
+            <v-icon>mdi-file-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>New</span>
+      </v-tooltip>
 
-      <v-btn @click="newFile" color="#E7DBDE" text>
-        <span
-          class="d-none d-md-block mr-2"
-          style="font-family: Bahnschrift, serif"
-          >New</span
-        >
-        <v-icon>mdi-file-outline</v-icon>
-      </v-btn>
-
-      <v-btn @click.stop="dialog = true" text color="#E7DBDE">
-        <span
-          class="d-none d-md-block mr-2"
-          style="font-family: Bahnschrift, serif"
-          >IMPORT</span
-        >
-        <v-icon>mdi-import</v-icon>
-      </v-btn>
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            @click.stop="dialog = true"
+            text
+            v-bind="attrs"
+            v-on="on"
+            color="#E7DBDE"
+          >
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >IMPORT</span
+            >
+            <v-icon>mdi-import</v-icon>
+          </v-btn>
+        </template>
+        <span>Import</span>
+      </v-tooltip>
 
       <v-dialog v-model="dialog" max-width="500">
         <v-card>
@@ -78,42 +93,68 @@
         </v-card>
       </v-dialog>
 
-      <v-btn @click="save()" color="#E7DBDE" text v-show="btnShowCondition()">
-        <span
-          class="d-none d-md-block mr-2"
-          style="font-family: Bahnschrift, serif"
-          >SAVE</span
-        >
-        <v-icon>mdi-content-save</v-icon>
-      </v-btn>
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            @click="save()"
+            color="#E7DBDE"
+            text
+            v-bind="attrs"
+            v-on="on"
+            v-show="btnShowCondition()"
+          >
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >SAVE</span
+            >
+            <v-icon>mdi-content-save</v-icon>
+          </v-btn>
+        </template>
+        <span>Save</span>
+      </v-tooltip>
 
-      <v-btn
-        @click="restore()"
-        color="#E7DBDE"
-        text
-        v-show="btnShowCondition()"
-      >
-        <span
-          class="d-none d-md-block mr-2"
-          style="font-family: Bahnschrift, serif"
-          >Restore</span
-        >
-        <v-icon>mdi-backup-restore</v-icon>
-      </v-btn>
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            @click="restore()"
+            color="#E7DBDE"
+            text
+            v-bind="attrs"
+            v-on="on"
+            v-show="btnShowCondition()"
+          >
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >REVERT</span
+            >
+            <v-icon>mdi-backup-restore</v-icon>
+          </v-btn>
+        </template>
+        <span>Revert</span>
+      </v-tooltip>
 
-      <v-btn
-        @click.stop="dialog2 = true"
-        color="#E7DBDE"
-        text
-        v-show="btnShowCondition()"
-      >
-        <span
-          class="d-none d-md-block mr-2"
-          style="font-family: Bahnschrift, serif"
-          >Export</span
-        >
-        <v-icon>mdi-export</v-icon>
-      </v-btn>
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            @click.stop="dialog2 = true"
+            color="#E7DBDE"
+            text
+            v-bind="attrs"
+            v-on="on"
+            v-show="btnShowCondition()"
+          >
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >Export</span
+            >
+            <v-icon>mdi-export</v-icon>
+          </v-btn>
+        </template>
+        <span>Export</span>
+      </v-tooltip>
 
       <v-dialog v-model="dialog2" max-width="500">
         <v-card>

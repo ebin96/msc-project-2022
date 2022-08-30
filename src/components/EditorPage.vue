@@ -1364,11 +1364,11 @@
           Instructions
         </v-card-title>
         <v-card-text>
-          Use the NEW button to build a new JSON file.<br />
-          Use the IMPORT button to import a JSON file to edit.<br />
-          Use the SAVE button to save the content.<br />
-          Use the RESTORE button to restore the saved content.<br />
-          Use the EXPORT button to export the content to a JSON file.
+          Use the NEW button to start building a new JSON file.<br />
+          Use the IMPORT button to import an existing JSON file to edit.<br />
+          Use the SAVE button to save the current state.<br />
+          Use the REVERT button to revert back to the last saved state.<br />
+          Use the EXPORT button to export the content as a JSON file.
         </v-card-text>
         <v-divider class="mt-12"></v-divider>
 
