@@ -6,7 +6,7 @@
     <v-dialog v-model="dialog" max-width="500">
       <v-card>
         <v-card-title style="font-family: Bahnschrift, serif; color: #bc8f8f">
-          ADD THE DETAILS
+          ADD DETAILS
         </v-card-title>
 
         <v-card-text>
@@ -34,7 +34,7 @@
 
           <!--String(Key-Value) Input -->
 
-          <div v-if="selected === 'Key-Value'">
+          <div v-if="selected === 'Key-Value(String)'">
             <v-text-field
               label="Key"
               clearable
@@ -49,6 +49,57 @@
               filled
               color="#BC8F8F"
               v-model="value2"
+            ></v-text-field>
+
+            <v-divider class="mt-12"></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="color1"
+                style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                @click="
+                  dialog = false;
+                  resetSelection();
+                "
+              >
+                Cancel
+              </v-btn>
+
+              <v-btn
+                color="color1"
+                style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                :disabled="!(value1 && value2)"
+                @click="
+                  dialog = false;
+                  addKeyValue();
+                  resetSelection();
+                "
+              >
+                OK
+              </v-btn>
+            </v-card-actions>
+          </div>
+
+          <!--Number(Key-Value) Input -->
+
+          <div v-if="selected === 'Key-Value(Number)'">
+            <v-text-field
+              label="Key"
+              clearable
+              filled
+              color="#BC8F8F"
+              v-model="value1"
+            ></v-text-field>
+
+            <v-text-field
+              label="Value"
+              clearable
+              filled
+              type="number"
+              hide-spin-buttons
+              color="#BC8F8F"
               v-model.number="value2"
             ></v-text-field>
 
@@ -71,7 +122,7 @@
               <v-btn
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
-                :disabled="value1 == null"
+                :disabled="!(value1 && value2)"
                 @click="
                   dialog = false;
                   addKeyValue();
@@ -112,6 +163,7 @@
               <v-btn
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                :disabled="!value1"
                 @click="
                   dialog = false;
                   value2 = {};
@@ -126,9 +178,9 @@
 
           <!-- Array Input -->
 
-          <div v-if="selected === 'Array'">
+          <div v-if="selected === 'Key-Array'">
             <v-text-field
-              label="Key(Array Name)"
+              label="Key"
               v-if="!isHidden"
               clearable
               filled
@@ -138,24 +190,51 @@
 
             <v-text-field
               label="Value"
-              v-if="isHidden"
+              v-if="isHidden && sFlag"
               clearable
               filled
               color="#BC8F8F"
               v-model="value2"
             ></v-text-field>
 
+            <v-text-field
+              label="Value"
+              v-if="isHidden && nFlag"
+              clearable
+              filled
+              color="#BC8F8F"
+              type="number"
+              v-model.number="value2"
+              hide-spin-buttons
+            ></v-text-field>
+
+            <v-btn
+              color="color1"
+              class="ma-3"
+              style="font-family: Bahnschrift, serif; color: #bc8f8f"
+              v-if="!isHidden"
+              :disabled="!value1"
+              @click="
+                addArray();
+                isHidden = true;
+                sFlag = true;
+              "
+            >
+              Add Values( String )
+            </v-btn>
+
             <v-btn
               color="color1"
               style="font-family: Bahnschrift, serif; color: #bc8f8f"
               v-if="!isHidden"
-              :disabled="value1 == null"
+              :disabled="!value1"
               @click="
                 addArray();
                 isHidden = true;
+                nFlag = true;
               "
             >
-              Add Values
+              Add Values( Number )
             </v-btn>
 
             <v-btn
@@ -164,7 +243,7 @@
               v-if="isHidden"
               @click="
                 addDataArray();
-                value2 = null;
+                this.value2 = null;
               "
             >
               Add
@@ -183,6 +262,65 @@
                   removeData();
                   resetSelection();
                   isHidden = false;
+                  nFlag = false;
+                  sFlag = false;
+                "
+              >
+                Cancel
+              </v-btn>
+
+              <v-btn
+                color="color1"
+                :disabled="!value1"
+                v-if="isHidden"
+                style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                @click="
+                  dialog = false;
+                  resetSelection();
+                  isHidden = false;
+                  nFlag = false;
+                  sFlag = false;
+                "
+              >
+                OK
+              </v-btn>
+            </v-card-actions>
+          </div>
+
+          <!-- Array Value(String) Input -->
+
+          <div v-if="selected === 'Value(String)'">
+            <v-text-field
+              label="Value"
+              clearable
+              filled
+              color="#BC8F8F"
+              v-model="value1"
+            ></v-text-field>
+
+            <v-btn
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: #bc8f8f"
+              @click="
+                addValue();
+                value1 = null;
+              "
+            >
+              Add
+            </v-btn>
+
+            <v-divider class="mt-12"></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="color1"
+                style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                @click="
+                  dialog = false;
+                  removeData();
+                  resetSelection();
                 "
               >
                 Cancel
@@ -194,7 +332,6 @@
                 @click="
                   dialog = false;
                   resetSelection();
-                  isHidden = false;
                 "
               >
                 OK
@@ -202,15 +339,17 @@
             </v-card-actions>
           </div>
 
-          <!-- Array Value Input -->
+          <!-- Array Value(Number) Input -->
 
-          <div v-if="selected === 'Value'">
+          <div v-if="selected === 'Value(Number)'">
             <v-text-field
               label="Value"
               clearable
               filled
               color="#BC8F8F"
-              v-model="value1"
+              type="number"
+              hide-spin-buttons
+              v-model.number="value1"
             ></v-text-field>
 
             <v-btn
@@ -309,8 +448,15 @@ export default Vue.extend({
     selected: undefined,
     isHidden: false,
     temp: null,
-    optionsMain: ["Key-Value", "Key-Object", "Array"],
-    optionsArray: ["Value", "Object"],
+    sFlag: false,
+    nFlag: false,
+    optionsMain: [
+      "Key-Value(String)",
+      "Key-Value(Number)",
+      "Key-Object",
+      "Key-Array",
+    ],
+    optionsArray: ["Value(String)", "Value(Number)", "Object"],
     optionsBool: ["true", "false"],
   }),
 

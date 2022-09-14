@@ -1282,10 +1282,23 @@
                     v-model="jsonData[key_0]"
                   >
                     <template slot="append-outer">
-                      <v-icon @click="removeDataConfirm(jsonData, key_0)"
-                        >mdi-delete</v-icon
-                      >
-                      <v-icon class="handle">mdi-drag</v-icon>
+                      <v-btn icon>
+                        <v-icon @click="removeDataConfirm(jsonData, key_0)"
+                          >mdi-delete</v-icon
+                        >
+                      </v-btn>
+
+                      <v-btn icon>
+                        <v-icon class="handle">mdi-drag</v-icon>
+                      </v-btn>
+
+                      <v-btn icon>
+                        <v-icon
+                          @click="keyChangeDialog(jsonData, key_0, value_0)"
+                        >
+                          mdi-key-change</v-icon
+                        >
+                      </v-btn>
                     </template>
                   </v-text-field>
                 </div>
@@ -1354,6 +1367,46 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog v-model="keyDialog" max-width="500">
+      <v-card>
+        <v-card-title style="font-family: Bahnschrift, serif; color: rosybrown">
+          Edit The Key Field
+        </v-card-title>
+        <v-card-text>
+          <v-text-field
+            clearable
+            filled
+            color="#BC8F8F"
+            v-model="newKey"
+          ></v-text-field>
+
+          <v-divider class="mt-12"></v-divider>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: #bc8f8f"
+              @click="keyDialog = false"
+            >
+              Cancel
+            </v-btn>
+
+            <v-btn
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: #bc8f8f"
+              @click="
+                keyChange();
+                keyDialog = false;
+              "
+            >
+              OK
+            </v-btn>
+          </v-card-actions>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
     <v-dialog
       v-model="insDialog"
       v-if="this.$store.getters.getInsFlag"
@@ -1413,8 +1466,13 @@ export default Vue.extend({
     jsonData: null as any,
     dialog: false,
     insDialog: true,
+    keyDialog: false,
     dVal: null as any,
     dKey: null as any,
+    newKey: null as any,
+    kData: null as any,
+    kVal: null as any,
+    kId: null as any,
   }),
 
   computed: {
@@ -1443,6 +1501,19 @@ export default Vue.extend({
       this.dialog = true;
     },
 
+    keyChangeDialog(Data: any, id: any, value: any) {
+      this.kData = Data;
+      this.kVal = value;
+      this.kId = id;
+      this.newKey = id;
+      this.keyDialog = true;
+    },
+
+    keyChange() {
+      Vue.set(this.kData, this.newKey, this.kVal);
+      Vue.delete(this.kData, this.kId);
+    },
+
     dataTypeCheck(value: any) {
       return _.isObject(value) || _.isArray(value);
     },
@@ -1457,8 +1528,6 @@ export default Vue.extend({
       key3: any,
       val4: any
     ) {
-      //console.log(Object.keys(val))
-      //console.log(event)
       let newKeyOrder = [] as any;
       event.to.childNodes.forEach((element: any) => {
         newKeyOrder.push(element.className);
