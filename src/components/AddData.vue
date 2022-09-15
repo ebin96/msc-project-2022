@@ -1,8 +1,10 @@
 <template>
   <div>
-    <v-icon @click.stop="dialog = true" @click="tempData()"
-      >mdi-plus-circle</v-icon
-    >
+    <v-btn icon>
+      <v-icon @click.stop="dialog = true" @click="tempData()"
+        >mdi-plus-circle</v-icon
+      >
+    </v-btn>
     <v-dialog v-model="dialog" max-width="500">
       <v-card>
         <v-card-title style="font-family: Bahnschrift, serif; color: #bc8f8f">
@@ -181,73 +183,11 @@
           <div v-if="selected === 'Key-Array'">
             <v-text-field
               label="Key"
-              v-if="!isHidden"
               clearable
               filled
               color="#BC8F8F"
               v-model="value1"
             ></v-text-field>
-
-            <v-text-field
-              label="Value"
-              v-if="isHidden && sFlag"
-              clearable
-              filled
-              color="#BC8F8F"
-              v-model="value2"
-            ></v-text-field>
-
-            <v-text-field
-              label="Value"
-              v-if="isHidden && nFlag"
-              clearable
-              filled
-              color="#BC8F8F"
-              type="number"
-              v-model.number="value2"
-              hide-spin-buttons
-            ></v-text-field>
-
-            <v-btn
-              color="color1"
-              class="ma-3"
-              style="font-family: Bahnschrift, serif; color: #bc8f8f"
-              v-if="!isHidden"
-              :disabled="!value1"
-              @click="
-                addArray();
-                isHidden = true;
-                sFlag = true;
-              "
-            >
-              Add Values( String )
-            </v-btn>
-
-            <v-btn
-              color="color1"
-              style="font-family: Bahnschrift, serif; color: #bc8f8f"
-              v-if="!isHidden"
-              :disabled="!value1"
-              @click="
-                addArray();
-                isHidden = true;
-                nFlag = true;
-              "
-            >
-              Add Values( Number )
-            </v-btn>
-
-            <v-btn
-              color="color1"
-              style="font-family: Bahnschrift, serif; color: #bc8f8f"
-              v-if="isHidden"
-              @click="
-                addDataArray();
-                value2 = null;
-              "
-            >
-              Add
-            </v-btn>
 
             <v-divider class="mt-12"></v-divider>
 
@@ -261,9 +201,6 @@
                   dialog = false;
                   removeData();
                   resetSelection();
-                  isHidden = false;
-                  nFlag = false;
-                  sFlag = false;
                 "
               >
                 Cancel
@@ -272,14 +209,11 @@
               <v-btn
                 color="color1"
                 :disabled="!value1"
-                v-if="isHidden"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
                   dialog = false;
+                  addArray();
                   resetSelection();
-                  isHidden = false;
-                  nFlag = false;
-                  sFlag = false;
                 "
               >
                 OK
@@ -393,6 +327,39 @@
             </v-card-actions>
           </div>
 
+          <!-- Array of Array Input -->
+
+          <div v-if="selected === 'Array'">
+            <v-divider class="mt-12"></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="color1"
+                style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                @click="
+                  dialog = false;
+                  resetSelection();
+                "
+              >
+                Cancel
+              </v-btn>
+
+              <v-btn
+                color="color1"
+                style="font-family: Bahnschrift, serif; color: #bc8f8f"
+                @click="
+                  dialog = false;
+                  resetSelection();
+                  addArrayOfArray();
+                "
+              >
+                OK
+              </v-btn>
+            </v-card-actions>
+          </div>
+
           <!-- Array Object Input -->
 
           <div v-if="selected === 'Object'">
@@ -446,7 +413,6 @@ export default Vue.extend({
     value1: null as any,
     value2: null as any,
     selected: undefined,
-    isHidden: false,
     temp: null,
     sFlag: false,
     nFlag: false,
@@ -456,7 +422,7 @@ export default Vue.extend({
       "Key-Object",
       "Key-Array",
     ],
-    optionsArray: ["Value(String)", "Value(Number)", "Object"],
+    optionsArray: ["Value(String)", "Value(Number)", "Array", "Object"],
     optionsBool: ["true", "false"],
   }),
 
@@ -487,6 +453,11 @@ export default Vue.extend({
     addArray() {
       this.value1 = _.snakeCase(this.value1);
       Vue.set(this.jData, this.value1, []);
+    },
+
+    addArrayOfArray() {
+      // eslint-disable-next-line
+      this.globalJData[this.keyValue].push([]);
     },
 
     addDataArray() {

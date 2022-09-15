@@ -4,9 +4,17 @@
       <div class="d-flex align-center" @click="goHome()">
         <v-img
           alt="Editor Logo"
+          class="d-none d-md-block mr-2"
           contain
           :src="require('./assets/logo.png')"
-          width="95"
+          width="105"
+        />
+        <v-img
+          alt="Editor Logo"
+          class="d-md-none mr-2"
+          contain
+          :src="require('./assets/logoSmall.png')"
+          width="25"
         />
       </div>
 
@@ -203,6 +211,68 @@
 
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            @click.stop="dialog3 = true"
+            color="#E7DBDE"
+            text
+            v-bind="attrs"
+            v-on="on"
+            v-show="btnShowCondition()"
+          >
+            <span
+              class="d-none d-md-block mr-2"
+              style="font-family: Bahnschrift, serif"
+              >INSTRUCTIONS</span
+            >
+            <v-icon>mdi-information-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>Instructions</span>
+      </v-tooltip>
+
+      <v-dialog v-model="dialog3" max-width="500">
+        <v-card>
+          <v-card-title
+            style="font-family: Bahnschrift, serif; color: rosybrown"
+          >
+            Instructions
+          </v-card-title>
+          <v-card-text>
+            Use this tool in a desktop or large screen for better experience.<br />
+            Use the NEW button to start building a new JSON file.<br />
+            Use the IMPORT button to import an existing JSON file to edit.<br />
+            Use the SAVE button to save the current state.<br />
+            Use the REVERT button to revert back to the last saved state.<br />
+            Use the EXPORT button to export the content as a JSON file.<br />
+            The User can view upto 4 levels of JSON fields in the JSON FORM VIEW
+            <br />
+            The User can directly edit Value fields in the JSON FORM VIEW <br />
+            Use the <v-icon>mdi-plus-circle</v-icon> to add new JSON fields.
+            <br />
+            Use the <v-icon>mdi-delete</v-icon> button to delete a field.<br />
+            Use the <v-icon>mdi-drag</v-icon> button to drag and sort the
+            fields.<br />
+            Use the <v-icon>mdi-key-change</v-icon> button to edit/change the
+            key value of the field.
+          </v-card-text>
+          <v-divider class="mt-12"></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: rosybrown"
+              @click="dialog3 = false"
+            >
+              CLOSE
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
+      <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
+        <template v-slot:activator="{ on, attrs }">
           <v-btn @click="dark()" color="#E7DBDE" text v-bind="attrs" v-on="on">
             <span
               class="d-none d-md-block mr-2"
@@ -315,6 +385,7 @@ export default Vue.extend({
   data: () => ({
     dialog: false,
     dialog2: false,
+    dialog3: false,
     fileName: "Assay Definition",
     chosenFile: null as any,
     tempData: null as any,
