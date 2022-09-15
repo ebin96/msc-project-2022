@@ -6,7 +6,7 @@
           alt="Editor Logo"
           contain
           :src="require('./assets/logo.png')"
-          width="125"
+          width="95"
         />
       </div>
 

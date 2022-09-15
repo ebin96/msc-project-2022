@@ -3,7 +3,7 @@
     <v-row>
       <!-- FORM View -->
 
-      <v-col cols="12" sm="6" xs="12" md="6" lg="6">
+      <v-col cols="12" sm="12" xs="12" md="9" lg="8">
         <v-card
           class="overflow-y-auto"
           tile
@@ -159,7 +159,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -167,22 +167,50 @@
                                                                       >
                                                                         <template
                                                                           slot="append-outer"
-                                                                        >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          ><v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -234,7 +262,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -243,21 +271,50 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -274,19 +331,43 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-icon
-                                                              @click="
-                                                                removeDataConfirm(
-                                                                  value_1,
-                                                                  key_2
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                @click="
+                                                                  removeDataConfirm(
+                                                                    value_1,
+                                                                    key_2
+                                                                  )
+                                                                "
+                                                                >mdi-delete</v-icon
+                                                              >
+                                                            </v-btn>
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                class="handle"
+                                                                >mdi-drag</v-icon
+                                                              >
+                                                            </v-btn>
+                                                            <v-btn
+                                                              icon
+                                                              v-if="
+                                                                !Array.isArray(
+                                                                  value_1
                                                                 )
                                                               "
-                                                              >mdi-delete</v-icon
                                                             >
-                                                            <v-icon
-                                                              class="handle"
-                                                              >mdi-drag</v-icon
-                                                            >
+                                                              <v-icon
+                                                                @click="
+                                                                  keyChangeDialog(
+                                                                    value_1,
+                                                                    key_2,
+                                                                    value_2
+                                                                  )
+                                                                "
+                                                              >
+                                                                mdi-key-change</v-icon
+                                                              >
+                                                            </v-btn>
                                                           </template>
                                                         </v-col>
                                                       </v-row>
@@ -306,23 +387,51 @@
                                                         type="text"
                                                         filled
                                                         color="#BC8F8F"
-                                                        v-model="value_1[key_2]"
+                                                        v-model.number="
+                                                          value_1[key_2]
+                                                        "
                                                       >
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-icon
-                                                            @click="
-                                                              removeDataConfirm(
-                                                                value_1,
-                                                                key_2
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              @click="
+                                                                removeDataConfirm(
+                                                                  value_1,
+                                                                  key_2
+                                                                )
+                                                              "
+                                                              >mdi-delete</v-icon
+                                                            >
+                                                          </v-btn>
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              class="handle"
+                                                              >mdi-drag</v-icon
+                                                            >
+                                                          </v-btn>
+
+                                                          <v-btn
+                                                            icon
+                                                            v-if="
+                                                              !Array.isArray(
+                                                                value_1
                                                               )
                                                             "
-                                                            >mdi-delete</v-icon
                                                           >
-                                                          <v-icon class="handle"
-                                                            >mdi-drag</v-icon
-                                                          >
+                                                            <v-icon
+                                                              @click="
+                                                                keyChangeDialog(
+                                                                  value_1,
+                                                                  key_2,
+                                                                  value_2
+                                                                )
+                                                              "
+                                                            >
+                                                              mdi-key-change</v-icon
+                                                            >
+                                                          </v-btn>
                                                         </template>
                                                       </v-text-field>
                                                     </div>
@@ -426,7 +535,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -435,21 +544,50 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -501,7 +639,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -510,21 +648,50 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -541,19 +708,44 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-icon
-                                                              @click="
-                                                                removeDataConfirm(
-                                                                  value_1,
-                                                                  key_2
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                @click="
+                                                                  removeDataConfirm(
+                                                                    value_1,
+                                                                    key_2
+                                                                  )
+                                                                "
+                                                                >mdi-delete</v-icon
+                                                              >
+                                                            </v-btn>
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                class="handle"
+                                                                >mdi-drag</v-icon
+                                                              >
+                                                            </v-btn>
+
+                                                            <v-btn
+                                                              icon
+                                                              v-if="
+                                                                !Array.isArray(
+                                                                  value_1
                                                                 )
                                                               "
-                                                              >mdi-delete</v-icon
                                                             >
-                                                            <v-icon
-                                                              class="handle"
-                                                              >mdi-drag</v-icon
-                                                            >
+                                                              <v-icon
+                                                                @click="
+                                                                  keyChangeDialog(
+                                                                    value_1,
+                                                                    key_2,
+                                                                    value_2
+                                                                  )
+                                                                "
+                                                              >
+                                                                mdi-key-change</v-icon
+                                                              >
+                                                            </v-btn>
                                                           </template>
                                                         </v-col>
                                                       </v-row>
@@ -573,23 +765,51 @@
                                                         type="text"
                                                         filled
                                                         color="#BC8F8F"
-                                                        v-model="value_1[key_2]"
+                                                        v-model.number="
+                                                          value_1[key_2]
+                                                        "
                                                       >
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-icon
-                                                            @click="
-                                                              removeDataConfirm(
-                                                                value_1,
-                                                                key_2
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              @click="
+                                                                removeDataConfirm(
+                                                                  value_1,
+                                                                  key_2
+                                                                )
+                                                              "
+                                                              >mdi-delete</v-icon
+                                                            >
+                                                          </v-btn>
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              class="handle"
+                                                              >mdi-drag</v-icon
+                                                            >
+                                                          </v-btn>
+
+                                                          <v-btn
+                                                            icon
+                                                            v-if="
+                                                              !Array.isArray(
+                                                                value_1
                                                               )
                                                             "
-                                                            >mdi-delete</v-icon
                                                           >
-                                                          <v-icon class="handle"
-                                                            >mdi-drag</v-icon
-                                                          >
+                                                            <v-icon
+                                                              @click="
+                                                                keyChangeDialog(
+                                                                  value_1,
+                                                                  key_2,
+                                                                  value_2
+                                                                )
+                                                              "
+                                                            >
+                                                              mdi-key-change</v-icon
+                                                            >
+                                                          </v-btn>
                                                         </template>
                                                       </v-text-field>
                                                     </div>
@@ -605,15 +825,39 @@
                                         class="align-self-center"
                                       >
                                         <template>
-                                          <v-icon
-                                            @click="
-                                              removeDataConfirm(value_0, key_1)
-                                            "
-                                            >mdi-delete</v-icon
+                                          <v-btn icon>
+                                            <v-icon
+                                              @click="
+                                                removeDataConfirm(
+                                                  value_0,
+                                                  key_1
+                                                )
+                                              "
+                                              >mdi-delete</v-icon
+                                            >
+                                          </v-btn>
+                                          <v-btn icon>
+                                            <v-icon class="handle"
+                                              >mdi-drag</v-icon
+                                            >
+                                          </v-btn>
+
+                                          <v-btn
+                                            icon
+                                            v-if="!Array.isArray(value_0)"
                                           >
-                                          <v-icon class="handle"
-                                            >mdi-drag</v-icon
-                                          >
+                                            <v-icon
+                                              @click="
+                                                keyChangeDialog(
+                                                  value_0,
+                                                  key_1,
+                                                  value_1
+                                                )
+                                              "
+                                            >
+                                              mdi-key-change</v-icon
+                                            >
+                                          </v-btn>
                                         </template>
                                       </v-col>
                                     </v-row>
@@ -627,16 +871,39 @@
                                       type="text"
                                       filled
                                       color="#BC8F8F"
-                                      v-model="value_0[key_1]"
+                                      v-model.number="value_0[key_1]"
                                     >
                                       <template slot="append-outer">
-                                        <v-icon
-                                          @click="
-                                            removeDataConfirm(value_0, key_1)
-                                          "
-                                          >mdi-delete</v-icon
+                                        <v-btn icon>
+                                          <v-icon
+                                            @click="
+                                              removeDataConfirm(value_0, key_1)
+                                            "
+                                            >mdi-delete</v-icon
+                                          >
+                                        </v-btn>
+                                        <v-btn icon>
+                                          <v-icon class="handle"
+                                            >mdi-drag</v-icon
+                                          >
+                                        </v-btn>
+
+                                        <v-btn
+                                          icon
+                                          v-if="!Array.isArray(value_0)"
                                         >
-                                        <v-icon class="handle">mdi-drag</v-icon>
+                                          <v-icon
+                                            @click="
+                                              keyChangeDialog(
+                                                value_0,
+                                                key_1,
+                                                value_1
+                                              )
+                                            "
+                                          >
+                                            mdi-key-change</v-icon
+                                          >
+                                        </v-btn>
                                       </template>
                                     </v-text-field>
                                   </div>
@@ -772,7 +1039,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -781,21 +1048,50 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -847,7 +1143,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -856,21 +1152,50 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -887,19 +1212,44 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-icon
-                                                              @click="
-                                                                removeDataConfirm(
-                                                                  value_1,
-                                                                  key_2
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                @click="
+                                                                  removeDataConfirm(
+                                                                    value_1,
+                                                                    key_2
+                                                                  )
+                                                                "
+                                                                >mdi-delete</v-icon
+                                                              >
+                                                            </v-btn>
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                class="handle"
+                                                                >mdi-drag</v-icon
+                                                              >
+                                                            </v-btn>
+
+                                                            <v-btn
+                                                              icon
+                                                              v-if="
+                                                                !Array.isArray(
+                                                                  value_1
                                                                 )
                                                               "
-                                                              >mdi-delete</v-icon
                                                             >
-                                                            <v-icon
-                                                              class="handle"
-                                                              >mdi-drag</v-icon
-                                                            >
+                                                              <v-icon
+                                                                @click="
+                                                                  keyChangeDialog(
+                                                                    value_1,
+                                                                    key_2,
+                                                                    value_2
+                                                                  )
+                                                                "
+                                                              >
+                                                                mdi-key-change</v-icon
+                                                              >
+                                                            </v-btn>
                                                           </template>
                                                         </v-col>
                                                       </v-row>
@@ -919,23 +1269,51 @@
                                                         type="text"
                                                         filled
                                                         color="#BC8F8F"
-                                                        v-model="value_1[key_2]"
+                                                        v-model.number="
+                                                          value_1[key_2]
+                                                        "
                                                       >
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-icon
-                                                            @click="
-                                                              removeDataConfirm(
-                                                                value_1,
-                                                                key_2
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              @click="
+                                                                removeDataConfirm(
+                                                                  value_1,
+                                                                  key_2
+                                                                )
+                                                              "
+                                                              >mdi-delete</v-icon
+                                                            >
+                                                          </v-btn>
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              class="handle"
+                                                              >mdi-drag</v-icon
+                                                            >
+                                                          </v-btn>
+
+                                                          <v-btn
+                                                            icon
+                                                            v-if="
+                                                              !Array.isArray(
+                                                                value_1
                                                               )
                                                             "
-                                                            >mdi-delete</v-icon
                                                           >
-                                                          <v-icon class="handle"
-                                                            >mdi-drag</v-icon
-                                                          >
+                                                            <v-icon
+                                                              @click="
+                                                                keyChangeDialog(
+                                                                  value_1,
+                                                                  key_2,
+                                                                  value_2
+                                                                )
+                                                              "
+                                                            >
+                                                              mdi-key-change</v-icon
+                                                            >
+                                                          </v-btn>
                                                         </template>
                                                       </v-text-field>
                                                     </div>
@@ -1039,7 +1417,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -1048,21 +1426,49 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -1114,7 +1520,7 @@
                                                                         type="text"
                                                                         filled
                                                                         color="#BC8F8F"
-                                                                        v-model="
+                                                                        v-model.number="
                                                                           value_2[
                                                                             key_3
                                                                           ]
@@ -1123,21 +1529,50 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                         >
-                                                                          <v-icon
-                                                                            @click="
-                                                                              removeDataConfirm(
-                                                                                value_2,
-                                                                                key_3
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                removeDataConfirm(
+                                                                                  value_2,
+                                                                                  key_3
+                                                                                )
+                                                                              "
+                                                                              >mdi-delete</v-icon
+                                                                            >
+                                                                          </v-btn>
+                                                                          <v-btn
+                                                                            icon
+                                                                          >
+                                                                            <v-icon
+                                                                              class="
+                                                                                handle
+                                                                              "
+                                                                              >mdi-drag</v-icon
+                                                                            >
+                                                                          </v-btn>
+
+                                                                          <v-btn
+                                                                            icon
+                                                                            v-if="
+                                                                              !Array.isArray(
+                                                                                value_2
                                                                               )
                                                                             "
-                                                                            >mdi-delete</v-icon
                                                                           >
-                                                                          <v-icon
-                                                                            class="
-                                                                              handle
-                                                                            "
-                                                                            >mdi-drag</v-icon
-                                                                          >
+                                                                            <v-icon
+                                                                              @click="
+                                                                                keyChangeDialog(
+                                                                                  value_2,
+                                                                                  key_3,
+                                                                                  value_3
+                                                                                )
+                                                                              "
+                                                                            >
+                                                                              mdi-key-change</v-icon
+                                                                            >
+                                                                          </v-btn>
                                                                         </template>
                                                                       </v-text-field>
                                                                     </div>
@@ -1154,19 +1589,44 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-icon
-                                                              @click="
-                                                                removeDataConfirm(
-                                                                  value_1,
-                                                                  key_2
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                @click="
+                                                                  removeDataConfirm(
+                                                                    value_1,
+                                                                    key_2
+                                                                  )
+                                                                "
+                                                                >mdi-delete</v-icon
+                                                              >
+                                                            </v-btn>
+                                                            <v-btn icon>
+                                                              <v-icon
+                                                                class="handle"
+                                                                >mdi-drag</v-icon
+                                                              >
+                                                            </v-btn>
+
+                                                            <v-btn
+                                                              icon
+                                                              v-if="
+                                                                !Array.isArray(
+                                                                  value_1
                                                                 )
                                                               "
-                                                              >mdi-delete</v-icon
                                                             >
-                                                            <v-icon
-                                                              class="handle"
-                                                              >mdi-drag</v-icon
-                                                            >
+                                                              <v-icon
+                                                                @click="
+                                                                  keyChangeDialog(
+                                                                    value_1,
+                                                                    key_2,
+                                                                    value_2
+                                                                  )
+                                                                "
+                                                              >
+                                                                mdi-key-change</v-icon
+                                                              >
+                                                            </v-btn>
                                                           </template>
                                                         </v-col>
                                                       </v-row>
@@ -1186,23 +1646,51 @@
                                                         type="text"
                                                         filled
                                                         color="#BC8F8F"
-                                                        v-model="value_1[key_2]"
+                                                        v-model.number="
+                                                          value_1[key_2]
+                                                        "
                                                       >
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-icon
-                                                            @click="
-                                                              removeDataConfirm(
-                                                                value_1,
-                                                                key_2
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              @click="
+                                                                removeDataConfirm(
+                                                                  value_1,
+                                                                  key_2
+                                                                )
+                                                              "
+                                                              >mdi-delete</v-icon
+                                                            >
+                                                          </v-btn>
+                                                          <v-btn icon>
+                                                            <v-icon
+                                                              class="handle"
+                                                              >mdi-drag</v-icon
+                                                            >
+                                                          </v-btn>
+
+                                                          <v-btn
+                                                            icon
+                                                            v-if="
+                                                              !Array.isArray(
+                                                                value_1
                                                               )
                                                             "
-                                                            >mdi-delete</v-icon
                                                           >
-                                                          <v-icon class="handle"
-                                                            >mdi-drag</v-icon
-                                                          >
+                                                            <v-icon
+                                                              @click="
+                                                                keyChangeDialog(
+                                                                  value_1,
+                                                                  key_2,
+                                                                  value_2
+                                                                )
+                                                              "
+                                                            >
+                                                              mdi-key-change</v-icon
+                                                            >
+                                                          </v-btn>
                                                         </template>
                                                       </v-text-field>
                                                     </div>
@@ -1218,15 +1706,39 @@
                                         class="align-self-center"
                                       >
                                         <template>
-                                          <v-icon
-                                            @click="
-                                              removeDataConfirm(value_0, key_1)
-                                            "
-                                            >mdi-delete</v-icon
+                                          <v-btn icon>
+                                            <v-icon
+                                              @click="
+                                                removeDataConfirm(
+                                                  value_0,
+                                                  key_1
+                                                )
+                                              "
+                                              >mdi-delete</v-icon
+                                            >
+                                          </v-btn>
+                                          <v-btn icon>
+                                            <v-icon class="handle"
+                                              >mdi-drag</v-icon
+                                            >
+                                          </v-btn>
+
+                                          <v-btn
+                                            icon
+                                            v-if="!Array.isArray(value_0)"
                                           >
-                                          <v-icon class="handle"
-                                            >mdi-drag</v-icon
-                                          >
+                                            <v-icon
+                                              @click="
+                                                keyChangeDialog(
+                                                  value_0,
+                                                  key_1,
+                                                  value_1
+                                                )
+                                              "
+                                            >
+                                              mdi-key-change</v-icon
+                                            >
+                                          </v-btn>
                                         </template>
                                       </v-col>
                                     </v-row>
@@ -1240,16 +1752,38 @@
                                       type="text"
                                       filled
                                       color="#BC8F8F"
-                                      v-model="value_0[key_1]"
+                                      v-model.number="value_0[key_1]"
                                     >
                                       <template slot="append-outer">
-                                        <v-icon
-                                          @click="
-                                            removeDataConfirm(value_0, key_1)
-                                          "
-                                          >mdi-delete</v-icon
+                                        <v-btn icon>
+                                          <v-icon
+                                            @click="
+                                              removeDataConfirm(value_0, key_1)
+                                            "
+                                            >mdi-delete</v-icon
+                                          >
+                                        </v-btn>
+                                        <v-btn icon>
+                                          <v-icon class="handle"
+                                            >mdi-drag</v-icon
+                                          >
+                                        </v-btn>
+                                        <v-btn
+                                          icon
+                                          v-if="!Array.isArray(value_0)"
                                         >
-                                        <v-icon class="handle">mdi-drag</v-icon>
+                                          <v-icon
+                                            @click="
+                                              keyChangeDialog(
+                                                value_0,
+                                                key_1,
+                                                value_1
+                                              )
+                                            "
+                                          >
+                                            mdi-key-change</v-icon
+                                          >
+                                        </v-btn>
                                       </template>
                                     </v-text-field>
                                   </div>
@@ -1262,10 +1796,22 @@
                     </v-col>
                     <v-col cols="auto" class="align-self-center">
                       <template>
-                        <v-icon @click="removeDataConfirm(jsonData, key_0)"
-                          >mdi-delete</v-icon
-                        >
-                        <v-icon class="handle">mdi-drag</v-icon>
+                        <v-btn icon>
+                          <v-icon @click="removeDataConfirm(jsonData, key_0)"
+                            >mdi-delete</v-icon
+                          >
+                        </v-btn>
+                        <v-btn icon>
+                          <v-icon class="handle">mdi-drag</v-icon>
+                        </v-btn>
+
+                        <v-btn icon v-if="!Array.isArray(jsonData)">
+                          <v-icon
+                            @click="keyChangeDialog(jsonData, key_0, value_0)"
+                          >
+                            mdi-key-change</v-icon
+                          >
+                        </v-btn>
                       </template>
                     </v-col>
                   </v-row>
@@ -1279,7 +1825,7 @@
                     clearable
                     filled
                     color="#BC8F8F"
-                    v-model="jsonData[key_0]"
+                    v-model.number="jsonData[key_0]"
                   >
                     <template slot="append-outer">
                       <v-btn icon>
@@ -1292,7 +1838,7 @@
                         <v-icon class="handle">mdi-drag</v-icon>
                       </v-btn>
 
-                      <v-btn icon>
+                      <v-btn icon v-if="!Array.isArray(jsonData)">
                         <v-icon
                           @click="keyChangeDialog(jsonData, key_0, value_0)"
                         >
@@ -1310,7 +1856,7 @@
 
       <!-- JSON View -->
 
-      <v-col cols="12" sm="6" xs="12" md="6" lg="6">
+      <v-col cols="12" sm="12" xs="12" md="3" lg="4">
         <v-card
           class="overflow-y-auto"
           tile
@@ -1417,11 +1963,22 @@
           Instructions
         </v-card-title>
         <v-card-text>
+          Use this tool in a desktop or large screen for better experience.<br />
           Use the NEW button to start building a new JSON file.<br />
           Use the IMPORT button to import an existing JSON file to edit.<br />
           Use the SAVE button to save the current state.<br />
           Use the REVERT button to revert back to the last saved state.<br />
-          Use the EXPORT button to export the content as a JSON file.
+          Use the EXPORT button to export the content as a JSON file.<br />
+          The User can view upto 4 levels of JSON fields in the JSON FORM VIEW
+          <br />
+          The User can directly edit Value fields in the JSON FORM VIEW <br />
+          Use the <v-icon>mdi-plus-circle</v-icon> to add new JSON fields.
+          <br />
+          Use the <v-icon>mdi-delete</v-icon> button to delete a field.<br />
+          Use the <v-icon>mdi-drag</v-icon> button to drag and sort the
+          fields.<br />
+          Use the <v-icon>mdi-key-change</v-icon> button to edit/change the key
+          value of the field.
         </v-card-text>
         <v-divider class="mt-12"></v-divider>
 

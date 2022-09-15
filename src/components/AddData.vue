@@ -243,7 +243,7 @@
               v-if="isHidden"
               @click="
                 addDataArray();
-                this.value2 = null;
+                value2 = null;
               "
             >
               Add
