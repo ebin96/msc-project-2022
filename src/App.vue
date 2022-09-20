@@ -38,7 +38,7 @@
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="dialog4 = false"
             >
-              Cancel
+              NO
             </v-btn>
 
             <v-btn
