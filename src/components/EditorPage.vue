@@ -1883,7 +1883,7 @@
           Are You Sure?
         </v-card-title>
         <v-card-text>
-          Do you really want to delete this field?. This process cannot be
+          Do you really want to delete this field? This process cannot be
           undone.
         </v-card-text>
         <v-divider class="mt-12"></v-divider>

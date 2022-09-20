@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="ash" dark>
-      <div class="d-flex align-center" @click="goHome()">
+      <div class="d-flex align-center" @click="dialog4 = true">
         <v-img
           alt="Editor Logo"
           class="d-none d-md-block mr-2"
@@ -17,6 +17,43 @@
           width="25"
         />
       </div>
+
+      <v-dialog v-model="dialog4" max-width="500">
+        <v-card>
+          <v-card-title
+            style="font-family: Bahnschrift, serif; color: rosybrown"
+          >
+            Are You Sure?
+          </v-card-title>
+          <v-card-text>
+            Do you really want to go back to the homepage?
+          </v-card-text>
+          <v-divider class="mt-12"></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: rosybrown"
+              @click="dialog4 = false"
+            >
+              Cancel
+            </v-btn>
+
+            <v-btn
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: rosybrown"
+              @click="
+                dialog4 = false;
+                goHome();
+              "
+            >
+              OK
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
       <v-spacer></v-spacer>
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
@@ -386,6 +423,7 @@ export default Vue.extend({
     dialog: false,
     dialog2: false,
     dialog3: false,
+    dialog4: false,
     fileName: "Assay Definition",
     chosenFile: null as any,
     tempData: null as any,
