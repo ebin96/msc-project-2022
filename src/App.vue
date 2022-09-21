@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="ash" dark>
-      <div class="d-flex align-center" @click="dialog4 = true">
+      <div class="d-flex align-center" @click="dialog4 = logoActionCondition()">
         <v-img
           alt="Editor Logo"
           class="d-none d-md-block mr-2"
@@ -414,6 +414,11 @@ export default Vue.extend({
     },
 
     btnShowCondition() {
+      if (this.$router.currentRoute.path == "/") return false;
+      else return true;
+    },
+
+    logoActionCondition() {
       if (this.$router.currentRoute.path == "/") return false;
       else return true;
     },

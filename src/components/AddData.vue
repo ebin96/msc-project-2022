@@ -34,9 +34,9 @@
             v-model="selected"
           ></v-select>
 
-          <!--String(Key-Value) Input -->
+          <!--String and Boolean (Key-Value) Input -->
 
-          <div v-if="selected === 'Key-Value(String)'">
+          <div v-if="selected === 'Key-Value(String or Boolean)'">
             <v-text-field
               label="Key"
               clearable
@@ -221,9 +221,9 @@
             </v-card-actions>
           </div>
 
-          <!-- Array Value(String) Input -->
+          <!-- Array Value(String or Boolean) Input -->
 
-          <div v-if="selected === 'Value(String)'">
+          <div v-if="selected === 'Value(String or Boolean)'">
             <v-text-field
               label="Value"
               clearable
@@ -417,12 +417,17 @@ export default Vue.extend({
     sFlag: false,
     nFlag: false,
     optionsMain: [
-      "Key-Value(String)",
+      "Key-Value(String or Boolean)",
       "Key-Value(Number)",
       "Key-Object",
       "Key-Array",
     ],
-    optionsArray: ["Value(String)", "Value(Number)", "Array", "Object"],
+    optionsArray: [
+      "Value(String or Boolean)",
+      "Value(Number)",
+      "Array",
+      "Object",
+    ],
     optionsBool: ["true", "false"],
   }),
 
@@ -466,8 +471,16 @@ export default Vue.extend({
     },
 
     addValue() {
-      // eslint-disable-next-line
-      this.globalJData[this.keyValue].push(this.value1);
+      if (this.value1.toLowerCase() == "true") {
+        // eslint-disable-next-line
+        this.globalJData[this.keyValue].push(Boolean(this.value1));
+      } else if (this.value1.toLowerCase() == "false") {
+        // eslint-disable-next-line
+        this.globalJData[this.keyValue].push(Boolean(!this.value1));
+      } else {
+        // eslint-disable-next-line
+        this.globalJData[this.keyValue].push(this.value1);
+      }
     },
 
     addObject() {
