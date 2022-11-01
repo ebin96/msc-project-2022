@@ -1,13 +1,19 @@
 <template>
-  <v-container class="home" fluid>
+  <v-container
+    class="home"
+    fluid
+    :style="{ background: $vuetify.theme.themes[theme].background }"
+  >
     <v-row class="text-center">
       <v-col xs="12" sm="12" md="6">
         <v-img :src="require('../assets/logo.png')" contain height="90" />
       </v-col>
 
       <v-col xs="12" sm="12" md="6">
-        <h2>To Get Started >>></h2>
-        <p>
+        <h2 :style="{ color: $vuetify.theme.themes[theme].info }">
+          To Get Started >>>
+        </h2>
+        <p :style="{ color: $vuetify.theme.themes[theme].info }">
           Use the NEW button to start building a new JSON file.<br />
           Use the IMPORT button to import an existing JSON file to edit.<br />
         </p>
@@ -25,6 +31,11 @@ export default Vue.extend({
   data: () => ({
     //
   }),
+  computed: {
+    theme() {
+      return this.$vuetify.theme.dark ? "dark" : "light";
+    },
+  },
 });
 </script>
 
@@ -32,7 +43,6 @@ export default Vue.extend({
 h2,
 p {
   font-family: Bahnschrift, serif;
-  color: color1;
 }
 
 .home {

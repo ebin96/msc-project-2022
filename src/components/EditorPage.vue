@@ -5,7 +5,7 @@
 
       <v-col cols="12" sm="12" xs="12" md="9" lg="8">
         <v-card
-          class="overflow-y-auto"
+          class="overflow-y-auto rounded-lg"
           tile
           color="color1"
           min-height="88vh"
@@ -168,6 +168,7 @@
                                                                         <template
                                                                           slot="append-outer"
                                                                           ><v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -181,6 +182,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -192,6 +194,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -272,6 +275,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -285,6 +289,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -296,6 +301,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -331,7 +337,7 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 @click="
                                                                   removeDataConfirm(
@@ -342,13 +348,14 @@
                                                                 >mdi-delete</v-icon
                                                               >
                                                             </v-btn>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 class="handle"
                                                                 >mdi-drag</v-icon
                                                               >
                                                             </v-btn>
                                                             <v-btn
+                                                              rounded
                                                               icon
                                                               v-if="
                                                                 !Array.isArray(
@@ -394,7 +401,7 @@
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               @click="
                                                                 removeDataConfirm(
@@ -405,7 +412,7 @@
                                                               >mdi-delete</v-icon
                                                             >
                                                           </v-btn>
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               class="handle"
                                                               >mdi-drag</v-icon
@@ -413,6 +420,7 @@
                                                           </v-btn>
 
                                                           <v-btn
+                                                            rounded
                                                             icon
                                                             v-if="
                                                               !Array.isArray(
@@ -545,6 +553,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -558,6 +567,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -569,6 +579,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -649,6 +660,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -662,6 +674,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -673,6 +686,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -708,7 +722,7 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 @click="
                                                                   removeDataConfirm(
@@ -719,7 +733,7 @@
                                                                 >mdi-delete</v-icon
                                                               >
                                                             </v-btn>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 class="handle"
                                                                 >mdi-drag</v-icon
@@ -727,6 +741,7 @@
                                                             </v-btn>
 
                                                             <v-btn
+                                                              rounded
                                                               icon
                                                               v-if="
                                                                 !Array.isArray(
@@ -772,7 +787,7 @@
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               @click="
                                                                 removeDataConfirm(
@@ -783,7 +798,7 @@
                                                               >mdi-delete</v-icon
                                                             >
                                                           </v-btn>
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               class="handle"
                                                               >mdi-drag</v-icon
@@ -791,6 +806,7 @@
                                                           </v-btn>
 
                                                           <v-btn
+                                                            rounded
                                                             icon
                                                             v-if="
                                                               !Array.isArray(
@@ -825,7 +841,7 @@
                                         class="align-self-center"
                                       >
                                         <template>
-                                          <v-btn icon>
+                                          <v-btn rounded icon>
                                             <v-icon
                                               @click="
                                                 removeDataConfirm(
@@ -836,13 +852,14 @@
                                               >mdi-delete</v-icon
                                             >
                                           </v-btn>
-                                          <v-btn icon>
+                                          <v-btn rounded icon>
                                             <v-icon class="handle"
                                               >mdi-drag</v-icon
                                             >
                                           </v-btn>
 
                                           <v-btn
+                                            rounded
                                             icon
                                             v-if="!Array.isArray(value_0)"
                                           >
@@ -874,7 +891,7 @@
                                       v-model.number="value_0[key_1]"
                                     >
                                       <template slot="append-outer">
-                                        <v-btn icon>
+                                        <v-btn rounded icon>
                                           <v-icon
                                             @click="
                                               removeDataConfirm(value_0, key_1)
@@ -882,13 +899,14 @@
                                             >mdi-delete</v-icon
                                           >
                                         </v-btn>
-                                        <v-btn icon>
+                                        <v-btn rounded icon>
                                           <v-icon class="handle"
                                             >mdi-drag</v-icon
                                           >
                                         </v-btn>
 
                                         <v-btn
+                                          rounded
                                           icon
                                           v-if="!Array.isArray(value_0)"
                                         >
@@ -1049,6 +1067,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1062,6 +1081,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1073,6 +1093,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -1153,6 +1174,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1166,6 +1188,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1177,6 +1200,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -1212,7 +1236,7 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 @click="
                                                                   removeDataConfirm(
@@ -1223,7 +1247,7 @@
                                                                 >mdi-delete</v-icon
                                                               >
                                                             </v-btn>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 class="handle"
                                                                 >mdi-drag</v-icon
@@ -1231,6 +1255,7 @@
                                                             </v-btn>
 
                                                             <v-btn
+                                                              rounded
                                                               icon
                                                               v-if="
                                                                 !Array.isArray(
@@ -1276,7 +1301,7 @@
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               @click="
                                                                 removeDataConfirm(
@@ -1287,7 +1312,7 @@
                                                               >mdi-delete</v-icon
                                                             >
                                                           </v-btn>
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               class="handle"
                                                               >mdi-drag</v-icon
@@ -1295,6 +1320,7 @@
                                                           </v-btn>
 
                                                           <v-btn
+                                                            rounded
                                                             icon
                                                             v-if="
                                                               !Array.isArray(
@@ -1427,6 +1453,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1440,6 +1467,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1450,6 +1478,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -1530,6 +1559,7 @@
                                                                           slot="append-outer"
                                                                         >
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1543,6 +1573,7 @@
                                                                             >
                                                                           </v-btn>
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                           >
                                                                             <v-icon
@@ -1554,6 +1585,7 @@
                                                                           </v-btn>
 
                                                                           <v-btn
+                                                                            rounded
                                                                             icon
                                                                             v-if="
                                                                               !Array.isArray(
@@ -1589,7 +1621,7 @@
                                                           "
                                                         >
                                                           <template>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 @click="
                                                                   removeDataConfirm(
@@ -1600,7 +1632,7 @@
                                                                 >mdi-delete</v-icon
                                                               >
                                                             </v-btn>
-                                                            <v-btn icon>
+                                                            <v-btn rounded icon>
                                                               <v-icon
                                                                 class="handle"
                                                                 >mdi-drag</v-icon
@@ -1608,6 +1640,7 @@
                                                             </v-btn>
 
                                                             <v-btn
+                                                              rounded
                                                               icon
                                                               v-if="
                                                                 !Array.isArray(
@@ -1653,7 +1686,7 @@
                                                         <template
                                                           slot="append-outer"
                                                         >
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               @click="
                                                                 removeDataConfirm(
@@ -1664,7 +1697,7 @@
                                                               >mdi-delete</v-icon
                                                             >
                                                           </v-btn>
-                                                          <v-btn icon>
+                                                          <v-btn rounded icon>
                                                             <v-icon
                                                               class="handle"
                                                               >mdi-drag</v-icon
@@ -1672,6 +1705,7 @@
                                                           </v-btn>
 
                                                           <v-btn
+                                                            rounded
                                                             icon
                                                             v-if="
                                                               !Array.isArray(
@@ -1706,7 +1740,7 @@
                                         class="align-self-center"
                                       >
                                         <template>
-                                          <v-btn icon>
+                                          <v-btn rounded icon>
                                             <v-icon
                                               @click="
                                                 removeDataConfirm(
@@ -1717,13 +1751,14 @@
                                               >mdi-delete</v-icon
                                             >
                                           </v-btn>
-                                          <v-btn icon>
+                                          <v-btn rounded icon>
                                             <v-icon class="handle"
                                               >mdi-drag</v-icon
                                             >
                                           </v-btn>
 
                                           <v-btn
+                                            rounded
                                             icon
                                             v-if="!Array.isArray(value_0)"
                                           >
@@ -1755,7 +1790,7 @@
                                       v-model.number="value_0[key_1]"
                                     >
                                       <template slot="append-outer">
-                                        <v-btn icon>
+                                        <v-btn rounded icon>
                                           <v-icon
                                             @click="
                                               removeDataConfirm(value_0, key_1)
@@ -1763,12 +1798,13 @@
                                             >mdi-delete</v-icon
                                           >
                                         </v-btn>
-                                        <v-btn icon>
+                                        <v-btn rounded icon>
                                           <v-icon class="handle"
                                             >mdi-drag</v-icon
                                           >
                                         </v-btn>
                                         <v-btn
+                                          rounded
                                           icon
                                           v-if="!Array.isArray(value_0)"
                                         >
@@ -1796,16 +1832,16 @@
                     </v-col>
                     <v-col cols="auto" class="align-self-center">
                       <template>
-                        <v-btn icon>
+                        <v-btn rounded icon>
                           <v-icon @click="removeDataConfirm(jsonData, key_0)"
                             >mdi-delete</v-icon
                           >
                         </v-btn>
-                        <v-btn icon>
+                        <v-btn rounded icon>
                           <v-icon class="handle">mdi-drag</v-icon>
                         </v-btn>
 
-                        <v-btn icon v-if="!Array.isArray(jsonData)">
+                        <v-btn rounded icon v-if="!Array.isArray(jsonData)">
                           <v-icon
                             @click="keyChangeDialog(jsonData, key_0, value_0)"
                           >
@@ -1828,17 +1864,17 @@
                     v-model.number="jsonData[key_0]"
                   >
                     <template slot="append-outer">
-                      <v-btn icon>
+                      <v-btn rounded icon>
                         <v-icon @click="removeDataConfirm(jsonData, key_0)"
                           >mdi-delete</v-icon
                         >
                       </v-btn>
 
-                      <v-btn icon>
+                      <v-btn rounded icon>
                         <v-icon class="handle">mdi-drag</v-icon>
                       </v-btn>
 
-                      <v-btn icon v-if="!Array.isArray(jsonData)">
+                      <v-btn rounded icon v-if="!Array.isArray(jsonData)">
                         <v-icon
                           @click="keyChangeDialog(jsonData, key_0, value_0)"
                         >
@@ -1858,7 +1894,7 @@
 
       <v-col cols="12" sm="12" xs="12" md="3" lg="4">
         <v-card
-          class="overflow-y-auto"
+          class="overflow-y-auto rounded-lg"
           tile
           color="color1"
           min-height="88vh"
@@ -1877,7 +1913,7 @@
       </v-col>
     </v-row>
 
-    <v-dialog v-model="dialog" max-width="500">
+    <v-dialog content-class="round" v-model="dialog" max-width="500">
       <v-card>
         <v-card-title style="font-family: Bahnschrift, serif; color: rosybrown">
           Are You Sure?
@@ -1892,6 +1928,7 @@
           <v-spacer></v-spacer>
 
           <v-btn
+            rounded
             color="color1"
             style="font-family: Bahnschrift, serif; color: rosybrown"
             @click="dialog = false"
@@ -1900,6 +1937,7 @@
           </v-btn>
 
           <v-btn
+            rounded
             color="color1"
             style="font-family: Bahnschrift, serif; color: rosybrown"
             @click="
@@ -1913,7 +1951,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="keyDialog" max-width="500">
+    <v-dialog content-class="round" v-model="keyDialog" max-width="500">
       <v-card>
         <v-card-title style="font-family: Bahnschrift, serif; color: rosybrown">
           Edit The Key Field
@@ -1931,6 +1969,7 @@
             <v-spacer></v-spacer>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: #bc8f8f"
               @click="keyDialog = false"
@@ -1939,6 +1978,7 @@
             </v-btn>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: #bc8f8f"
               @click="
@@ -1954,6 +1994,7 @@
     </v-dialog>
 
     <v-dialog
+      content-class="round"
       v-model="insDialog"
       v-if="this.$store.getters.getInsFlag"
       max-width="500"
@@ -1986,6 +2027,7 @@
           <v-spacer></v-spacer>
 
           <v-btn
+            rounded
             color="color1"
             style="font-family: Bahnschrift, serif; color: rosybrown"
             @click="
@@ -1997,6 +2039,7 @@
           </v-btn>
 
           <v-btn
+            rounded
             color="color1"
             style="font-family: Bahnschrift, serif; color: rosybrown"
             @click="insDialog = false"
@@ -2131,5 +2174,9 @@ export default Vue.extend({
 
 ::-webkit-scrollbar-thumb:hover {
   background: grey;
+}
+
+.round {
+  border-radius: 10px;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-btn icon>
+    <v-btn rounded icon>
       <v-icon @click.stop="dialog = true" @click="tempData()"
         >mdi-plus-circle</v-icon
       >
     </v-btn>
-    <v-dialog v-model="dialog" max-width="500">
+    <v-dialog content-class="round" v-model="dialog" max-width="500">
       <v-card>
         <v-card-title style="font-family: Bahnschrift, serif; color: #bc8f8f">
           ADD DETAILS
@@ -59,6 +59,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -70,6 +71,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 :disabled="!(value1 && value2)"
@@ -111,6 +113,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -122,6 +125,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 :disabled="!(value1 && value2)"
@@ -152,6 +156,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -163,6 +168,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 :disabled="!value1"
@@ -195,6 +201,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -207,6 +214,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 :disabled="!value1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
@@ -233,6 +241,7 @@
             ></v-text-field>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: #bc8f8f"
               @click="
@@ -249,6 +258,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -261,6 +271,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -287,6 +298,7 @@
             ></v-text-field>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: #bc8f8f"
               @click="
@@ -303,6 +315,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -315,6 +328,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -336,6 +350,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -347,6 +362,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -369,6 +385,7 @@
               <v-spacer></v-spacer>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -380,6 +397,7 @@
               </v-btn>
 
               <v-btn
+                rounded
                 color="color1"
                 style="font-family: Bahnschrift, serif; color: #bc8f8f"
                 @click="
@@ -517,3 +535,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+.round {
+  border-radius: 15px;
+}
+</style>

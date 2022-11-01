@@ -18,7 +18,7 @@
         />
       </div>
 
-      <v-dialog v-model="dialog4" max-width="500">
+      <v-dialog content-class="round" v-model="dialog4" max-width="500">
         <v-card>
           <v-card-title
             style="font-family: Bahnschrift, serif; color: rosybrown"
@@ -34,14 +34,7 @@
             <v-spacer></v-spacer>
 
             <v-btn
-              color="color1"
-              style="font-family: Bahnschrift, serif; color: rosybrown"
-              @click="dialog4 = false"
-            >
-              NO
-            </v-btn>
-
-            <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="
@@ -49,7 +42,16 @@
                 goHome();
               "
             >
-              OK
+              YES
+            </v-btn>
+
+            <v-btn
+              rounded
+              color="color1"
+              style="font-family: Bahnschrift, serif; color: rosybrown"
+              @click="dialog4 = false"
+            >
+              NO
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -58,7 +60,14 @@
       <v-spacer></v-spacer>
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn @click="newFile" color="#E7DBDE" text v-bind="attrs" v-on="on">
+          <v-btn
+            rounded
+            @click="newFile"
+            color="#E7DBDE"
+            text
+            v-bind="attrs"
+            v-on="on"
+          >
             <span
               class="d-none d-md-block mr-2"
               style="font-family: Bahnschrift, serif"
@@ -73,6 +82,7 @@
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            rounded
             @click.stop="dialog = true"
             text
             v-bind="attrs"
@@ -90,7 +100,7 @@
         <span>Import</span>
       </v-tooltip>
 
-      <v-dialog v-model="dialog" max-width="500">
+      <v-dialog content-class="round" v-model="dialog" max-width="500">
         <v-card>
           <v-card-title
             style="font-family: Bahnschrift, serif; color: rosybrown"
@@ -117,6 +127,7 @@
             <v-spacer></v-spacer>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="dialog = false"
@@ -125,6 +136,7 @@
             </v-btn>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="
@@ -141,6 +153,7 @@
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            rounded
             @click="save()"
             color="#E7DBDE"
             text
@@ -162,6 +175,7 @@
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            rounded
             @click="restore()"
             color="#E7DBDE"
             text
@@ -183,6 +197,7 @@
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            rounded
             @click.stop="dialog2 = true"
             color="#E7DBDE"
             text
@@ -201,7 +216,7 @@
         <span>Export</span>
       </v-tooltip>
 
-      <v-dialog v-model="dialog2" max-width="500">
+      <v-dialog content-class="round" v-model="dialog2" max-width="500">
         <v-card>
           <v-card-title
             style="font-family: Bahnschrift, serif; color: rosybrown"
@@ -225,6 +240,7 @@
             <v-spacer></v-spacer>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="dialog2 = false"
@@ -233,6 +249,7 @@
             </v-btn>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="
@@ -249,6 +266,7 @@
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            rounded
             @click.stop="dialog3 = true"
             color="#E7DBDE"
             text
@@ -267,7 +285,7 @@
         <span>Instructions</span>
       </v-tooltip>
 
-      <v-dialog v-model="dialog3" max-width="500">
+      <v-dialog content-class="round" v-model="dialog3" max-width="500">
         <v-card>
           <v-card-title
             style="font-family: Bahnschrift, serif; color: rosybrown"
@@ -298,6 +316,7 @@
             <v-spacer></v-spacer>
 
             <v-btn
+              rounded
               color="color1"
               style="font-family: Bahnschrift, serif; color: rosybrown"
               @click="dialog3 = false"
@@ -310,7 +329,14 @@
 
       <v-tooltip :disabled="$vuetify.breakpoint.mdAndUp" bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn @click="dark()" color="#E7DBDE" text v-bind="attrs" v-on="on">
+          <v-btn
+            rounded
+            @click="dark()"
+            color="#E7DBDE"
+            text
+            v-bind="attrs"
+            v-on="on"
+          >
             <span
               class="d-none d-md-block mr-2"
               style="font-family: Bahnschrift, serif"
@@ -437,3 +463,9 @@ export default Vue.extend({
   }),
 });
 </script>
+
+<style>
+.round {
+  border-radius: 15px;
+}
+</style>

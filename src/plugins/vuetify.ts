@@ -13,6 +13,8 @@ export default new Vuetify({
                 color4: '#ccb3b9',
                 colorVs: '#E7DBDE',
                 colorH: '#825a64',
+                background: '#E7DBDE',
+                info:'#181818',
 
 
             },
@@ -23,6 +25,9 @@ export default new Vuetify({
                 color4: '#4B4B4B',
                 colorVs: '#121212',
                 colorH: '#E7DBDE',
+                background: '#181818',
+                info:'#E7DBDE',
+                        
             },
         },
     },
