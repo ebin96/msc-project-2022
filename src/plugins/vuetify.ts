@@ -7,26 +7,22 @@ export default new Vuetify({
     theme: {
         themes: {
             light: {
-                color1: '#F9FBE7',
-                color2: '#e0d1d5',
-                color3: '#d6c2c7',
-                color4: '#ccb3b9',
-                colorVs: '#E7DBDE',
-                colorH: '#825a64',
-                background: '#E7DBDE',
-                info:'#181818',
+                background: '#FAFAFA',
+                color1: '#EFEBE9',
+                color2: '#D7CCC8',
+                color3: '#BCAAA4',
+                color4: '#A1887F',
+                info:'#212121',
 
 
             },
             dark: {
-                color1: '#181818',
-                color2: '#212121',
-                color3: '#2E2E2E',
-                color4: '#4B4B4B',
-                colorVs: '#121212',
-                colorH: '#E7DBDE',
-                background: '#181818',
-                info:'#E7DBDE',
+                background: '#212121',
+                color1: '#212121',
+                color2: '#263238',
+                color3: '#424242',
+                color4: '#37474F',
+                info:'#EFEBE9',
                         
             },
         },
